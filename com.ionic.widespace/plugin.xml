@@ -1,0 +1,41 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+    <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+            id="com.ionic.widespace" version="0.1">
+        <name>Device</name>
+        <description>Cordova Widespace sdk Plugin</description>
+        <author>Christophe Virgal</author>
+        <license>Apache 2.0 License</license>
+        <keywords>cordova,device</keywords>
+
+    <engines>
+        <engine name="cordova" version=">=3.0" />
+    </engines>
+
+        <js-module src="www/widespace-sdk.js" name="Widespace">
+            <clobbers target="Widespace" />
+        </js-module>
+
+
+     <!-- android -->
+    <platform name="android">
+        <config-file target="config.xml" parent="/*">
+            <feature name="CDVWidespace" >
+                <param name="android-package" value="com.cordova.plugin.widespace" onload="true" />
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/CDVWidespace.java" target-dir="src/com/cordova/plugin/widespace/" />
+    </platform>
+
+
+        <platform name="ios">
+            <config-file target="config.xml" parent="/*">
+                <feature name="Device">
+                    <param name="ios-package" value="CDVWidespace"/>
+                </feature>
+            </config-file>
+            <header-file src="src/ios/widespace-sdk.h" />
+            <source-file src="src/ios/widespace-sdk.m" />
+        </platform>
+    </plugin>
