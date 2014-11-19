@@ -4,7 +4,7 @@ function Widespace() {
 	var self = this;
 
 	self.initSplashAd = function() {
-		cordova.exec(function(){}, function(){}, "CDVWidespace", "init", []);
+		cordova.exec(function(){}, function(){}, "CDVWidespace", "initSplashAd", []);
 	};
 
 }
